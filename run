@@ -1,0 +1,3 @@
+#/bin/bash 
+
+docker run -it -v "`pwd`/hexo:/hexo" -p 8877:4000 hexo-blog:v1 hexo s
