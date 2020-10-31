@@ -1,3 +1,13 @@
+# Customeize
+.DS_Store
+Thumbs.db
+*.log
+
+hexo/db.json
+hexo/node_modules/
+# hexo/public/
+hexo/.deploy*/
+
 # Logs
 logs
 *.log
