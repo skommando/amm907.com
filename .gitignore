@@ -4,7 +4,7 @@ Thumbs.db
 *.log
 
 hexo/db.json
-# hexo/node_modules/
+hexo/node_modules/
 # hexo/public/
 hexo/.deploy*/
 
