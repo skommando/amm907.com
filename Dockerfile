@@ -9,6 +9,9 @@ RUN npm config set registry https://registry.npm.taobao.org
 # 安装 hexo
 RUN npm install hexo-cli -g
 
+# 安装 hexo-deployer-git
+npm install hexo-deployer-git --save
+
 # 配置 Github
 RUN git config --global user.email "${github_mail}"
 RUN git config --global user.name "${github_user}"
