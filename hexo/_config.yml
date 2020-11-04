@@ -8,14 +8,16 @@ subtitle: ''
 description: ''
 keywords:
 author: amm907
-language: en
-timezone: ''
+language: zh-CN
+timezone: 'Asia/Shanghai'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://example.com/child' and root as '/child/'
+# root 要设置为 repo 名称，否则 css 等文件会无法找到路径而渲染失败
 url: https://amm907.com
 root: /
 permalink: :year/:month/:day/:title/
+# permalink: :title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -41,7 +43,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true # 通过 hexo new 命令创建文章时，会创建同名的资源目录
 relative_link: false
 future: true
 highlight:
@@ -102,6 +104,7 @@ theme: book
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
+# 发布到当前仓库的其他分支
 deploy:
   type: git
   repo: git@github.com:skommando/amm907.com.git
