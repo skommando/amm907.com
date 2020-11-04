@@ -1,4 +1,6 @@
-FROM node:10
+# 先用14，如果报错了就换10
+# FROM node:10
+FROM node:14
 MAINTAINER amm907,skommandoamm@gmail.com
 ARG github_mail=489289314@qq.com
 ARG github_user=skommando
@@ -10,7 +12,10 @@ RUN npm config set registry https://registry.npm.taobao.org
 RUN npm install hexo-cli -g
 
 # 安装 hexo-deployer-git
-npm install hexo-deployer-git --save
+#RUN npm install hexo-deployer-git --save
+
+# 安装 hexo-theme-book 依赖
+#RUN npm install hexo-renderer-scss --save
 
 # 配置 Github
 RUN git config --global user.email "${github_mail}"
