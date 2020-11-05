@@ -1,11 +1,13 @@
 ---
 title: Lame Writeup
 date: 2020-11-05 02:22:09
-tags:
+category: hack
 ---
 
 # Lame Writeup
 
-![](./Lame.png)
+![](./Lame-Writeup/Lame.png)
 
 ---
+
+`print hello world`
