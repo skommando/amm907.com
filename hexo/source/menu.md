@@ -22,7 +22,7 @@
 
 ## HTB Linux
 
-* [Lame Writeup](/2020/11/05/Lame-Writeup)
+* [Lame Writeup](/2020/11/04/Lame-Writeup)
 
 ## HTB Windows
 

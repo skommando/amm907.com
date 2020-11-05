@@ -6,4 +6,6 @@ tags:
 
 # Lame Writeup
 
-![1](Lame-Writeup/1.jpg)
+![](./Lame.png)
+
+---

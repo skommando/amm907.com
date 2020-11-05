@@ -1,0 +1,3 @@
+#/bin/bash 
+
+docker run --rm -v "`pwd`/hexo:/hexo" -v "/Users/eric.qiu/.ssh/:/root/.ssh/" -p 8877:4000 amm907/hexo-blog:lastst sh -c "hexo clean && hexo g && hexo s"
