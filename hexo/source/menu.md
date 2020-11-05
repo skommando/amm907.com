@@ -10,29 +10,29 @@
 
 # [ OSCP BATTLE ]
 
-* [写在开始](/xie-zai-kai-shi)
+* [写在开始](/oscp/At-The-Beginning)
 
 ## Prepration
 
-* [KALI Deploy](/2020/11/04/KALI-Deploy)
+* [KALI Deploy](/oscp/KALI-Deploy)
 
 ## Note
 
-* [recon](/recon)
+* [recon](/)
 
 # -
 
-# [ Hack-the-box Writeup ]
+# [ Hack The Box Writeup ]
 
-* [HTB Env](/2020/11/04/HTB-Env)
+* [HTB Environment](/htb/HTB-Environment)
 
 ## HTB Linux
 
-* [Lame Writeup](/2020/11/04/Lame-Writeup)
+* [Lame Writeup](/htb/htb-linux/Lame-Writeup)
 
 ## HTB Windows
 
-* [nothing here](/plain)
+* [nothing here](/)
 
 # -
 
@@ -40,14 +40,14 @@
 
 ## Skills 
 
-* [skills](/skills)
+* [skills](/)
 
 ## Analize
 
-* [vuls](/vuls)
+* [vuls](/)
 
 # -
-* 
+  
 # [ Essay ]
 
-* [该做题了](/jin-tian-chi-le-sha)
+* [该做题了](/)

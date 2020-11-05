@@ -1,12 +1,12 @@
 ---
 title: Lame Writeup
 date: 2020-11-05 02:22:09
-category: hack
+category: Hack The Box
 ---
 
 # Lame Writeup
 
-![](./Lame-Writeup/Lame.png)
+![](./Lame.png)
 
 ---
 
