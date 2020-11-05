@@ -12,6 +12,10 @@
 
 * [写在开始](/xie-zai-kai-shi)
 
+## Prepration
+
+* [KALI Deploy](/2020/11/05/KALI-Deploy)
+
 ## Note
 
 * [recon](/recon)
@@ -20,13 +24,15 @@
 
 # [ Hack-the-box Writeup ]
 
+* [HTB Env](/2020/11/05/HTB-Env)
+
 ## HTB Linux
 
 * [Lame Writeup](/2020/11/04/Lame-Writeup)
 
 ## HTB Windows
 
-* [list test](/hexo-theme-book-demo/test/bugfix/list-test)
+* [nothing here](/plain)
 
 # -
 
