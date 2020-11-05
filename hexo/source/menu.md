@@ -14,7 +14,7 @@
 
 ## Prepration
 
-* [KALI Deploy](/2020/11/05/KALI-Deploy)
+* [KALI Deploy](/2020/11/04/KALI-Deploy)
 
 ## Note
 
@@ -24,7 +24,7 @@
 
 # [ Hack-the-box Writeup ]
 
-* [HTB Env](/2020/11/05/HTB-Env)
+* [HTB Env](/2020/11/04/HTB-Env)
 
 ## HTB Linux
 
