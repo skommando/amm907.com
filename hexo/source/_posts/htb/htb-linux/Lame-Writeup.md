@@ -10,14 +10,14 @@ category: Hack The Box
 
 ---
 
-## 信息收集
+### 信息收集
 
 上来第一件事先扫下开放端口，刚开始先用脚本把全端口跑一遍。
 
 在目录下新建一个 nmap 文件夹用来放扫描结果，整个渗透过程中可能存在多阶段扫描，很多结果需要分类。
 
 第一步扫描可以取名为 `init.*`，放在 `nmap/` 下。
-``` bash
+``` java
 nmap -sC -sV -O -p- -oA nmap/init 10.10.10.3
 ```
 - **-sC**: 会执行默认脚本
@@ -27,7 +27,8 @@ nmap -sC -sV -O -p- -oA nmap/init 10.10.10.3
 - **-oA**: 输出所有格式的信息并存为 nmap/init.*
 
 嫌速度慢可以先扫端口，然后根据开放端口扫详细。
-``` bash
+``` java
 nmap -p- 10.10.10.3
 nmap -sC -sV -O -p xx,xx,xx -oA nmap/init 10.10.10.3
 ```
+
