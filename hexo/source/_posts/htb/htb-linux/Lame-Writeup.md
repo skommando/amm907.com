@@ -56,7 +56,7 @@ nmap -sU -p- -oA nmap/udp 10.10.10.3
 ### 2、Port 22
 
 ### 3、Port 139、445
-MSF 开起来，关键字找 exp。
+MSF 开起来，搜关键字。
 ``` java
 search samba
 ```
@@ -99,4 +99,4 @@ id
 ![](./11.png)
 翻找文件，在 `/root/root.txt`、`/home/makis/user.txt` 找到 flag。
 
-![](./12.png) ![](./12.png)
+![](./12.png)
