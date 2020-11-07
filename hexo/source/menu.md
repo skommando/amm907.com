@@ -18,7 +18,7 @@
 
 ## Note
 
-* [recon](/)
+* [Nmap Tips](/oscp/Nmap-Tips)
 
 # -
 

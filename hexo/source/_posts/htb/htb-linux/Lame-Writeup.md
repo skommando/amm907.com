@@ -6,7 +6,7 @@ category: Hack The Box
 
 # Lame Writeup
 
-![](./Lame.png)
+![](./1.png)
 
 ---
 
