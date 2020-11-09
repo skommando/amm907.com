@@ -236,7 +236,7 @@ msf 有 exp 可以直接 getshell。
 尝试 [脏牛](https://www.exploit-db.com/exploits/40839) 和 [CVE-2008–0600](https://www.exploit-db.com/exploits/5093) 不成功。
 
 尝试 [CVE-2009-1185](https://www.exploit-db.com/exploits/8572)。
-下载 exp，传到机器上编译 `gcc 1234.c -o 1234`，获取 netlink PID `cat /proc/net/netlink`，执行提权的时候，会运行 `/tmp/run`（得自己加一个反弹 shell 脚本，命名为 /tmp/run），反弹到 kali 上获取 `root-shell`。
+下载 exp，传到机器上编译 `gcc 1234.c -o 1234`，获取 netlink PID `cat /proc/net/netlink`，执行提权的时候，会运行 `/tmp/run`（得自己加一个反弹 shell 脚本，命名为 /tmp/run），反弹到 kali 上获取 `root-shell`。（TODO: 补图）
 
 ## 0x03 Catch The Flag
 翻文件，flag 一般在用户个人目录下，最后在 `/root/root.txt`、`/home/makis/user.txt` 找到 flag。
