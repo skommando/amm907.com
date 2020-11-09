@@ -16,8 +16,10 @@ category: OSCP
 
 ### 安全工具
 
-自带 `MSF5`，我们要升级成 `MSF6`。
-用 `msfupdate` 更新，被告知不再支持，改用 `apt update; apt install metasploit-framework`，然而执行一般突然停了，啥也没报，然后 msf 打不开，也没更上，我佛了。
+自带 `MSF5`，我们要升级成 `MSF6`。
+用 `msfupdate` 更新，被告知不再支持，改用 `apt update; apt install metasploit-framework`。
+
+然而执行一半突然停了，啥也没报，然后 msf 打不开，也没更上，我佛了。
 
 **遇事不决就重装，问题解决。**
 ``` bash
@@ -31,8 +33,9 @@ curl https://raw.githubusercontent.com:443/rapid7/metasploit-omnibus/master/conf
 ### 杂七杂八的配置
 
 #### 终端外观
+直接在终端选项是改不了的，因为终端正在打开，改完了还会被覆盖，应该`关闭终端，修改配置文件`。
 - 图标：goterminal
-- 字体：关闭终端后，从文件中编辑 `.config/qterminal.org/qterminal.ini`
+- 字体：关闭终端后，修改配置 `.config/qterminal.org/qterminal.ini`
 ``` java
 fontFamily=Dejavu Sans Mono
 fontSize=11
