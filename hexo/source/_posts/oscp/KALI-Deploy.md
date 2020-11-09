@@ -14,9 +14,16 @@ category: OSCP
 
 。
 
-### 补充工具
+### 安全工具
 
-。
+自带 `MSF5`，我们要升级成 `MSF6`。
+用 `msfupdate` 更新，被告知不再支持，改用 `apt update; apt install metasploit-framework`，然而执行一般突然停了，啥也没报，然后 msf 打不开，也没更上，我佛了。
+
+**遇事不决就重装，问题解决。**
+``` bash
+apt remove metasploit-framework
+curl https://raw.githubusercontent.com:443/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
+```
 
 ### 辅助工具
 。
