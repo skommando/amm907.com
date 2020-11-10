@@ -9,3 +9,7 @@ category: Hack The Box
 ![](./1.png)
 
 ## 0x00 写在前面
+
+## 0x01 信息收集
+
+![](./2.png)
