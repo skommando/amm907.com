@@ -23,7 +23,7 @@ Lame 比较简单，篇幅比较啰嗦，旨在：
 
 ### 1、TCP Scan
 
-第一次扫描 TCP 端口可以取名为 `tcp.*`，放在 `nmap/` 下。这里有两种扫法**
+第一次扫描 TCP 端口可以取名为 `tcp.*`，放在 `nmap/` 下。
 
 **直接扫全端口。**
 ``` java
@@ -63,7 +63,7 @@ nmap -sU -p- -oA nmap/udp 10.10.10.3
 根据不同的端口服务去找利用方式，如何又快又准地在茫茫多的 exp 中找到匹配的那个，**找 EXP 的姿势很关键**。
 对于每个端口，应该根据 `服务和对应版本`，搜寻是否有已公开的利用方式，搜寻的方式可以是：
 - **www.google.com.hk** 
-- `searchsploit {keyword}` 关键字一般取漏洞描述，比如 `privilege` `samba`*
+- `searchsploit {keyword}` 关键字一般取漏洞描述，比如 `privilege` `samba`
 - **kali 中各种扫描器**
   - `nmap script: ll /usr/share/nmap/scripts/ | grep {keyword}` 关键字可以是 cve 也可以是 漏洞描述，比如 `cve` `samba`
   - `msf: search {keyword}` 关键字可以是 cve 也可以是 漏洞描述，比如 `cve` `samba`
@@ -74,7 +74,7 @@ nmap -sU -p- -oA nmap/udp 10.10.10.3
 #### ！当然你也可以直接 `searchexploit / nmap / msf` 搜一大堆再挨个找。
 看看说明，逐一筛选 `探测脚本` 或 `可用 exp`，能用的直接用，没找到的可以在 google 找下，可能已经公开 exp 但尚未集成 kali，这时候需要 `手工利用`。
 
-#### ！Google、Searchsploit、Nmap/MSF 三位一体漏洞库查找结果融合，总会有你想要的。
+#### ！Google、Searchsploit、Nmap/MSF 三位一体漏洞库搜索结果一起看，总会有你想要的。
 
 ### 1、Port 21
 google 一下发现 `vsftpd v2.3.4` 有公开 RCE，是开发哥写的后门，康康 `nmap` 有无脚本，路径在 `/usr/share/nmap/scripts/*`。
