@@ -237,7 +237,6 @@ get rootfs/home/makis/user.txt                        # 下载到本地查看，
 > client max protocol = SMB3
 > ```
 
-
 ![](./19.png)
 > #### TODO: 这个姿势目前没拿到 root，记个待办。
 > - 匿名登录为普通用户权限，无法访问 `root/*` 下的文件，所以看不到 root.txt
