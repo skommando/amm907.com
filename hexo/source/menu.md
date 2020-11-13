@@ -19,6 +19,7 @@
 ## Note
 
 * [Nmap Tips](/oscp/Nmap-Tips)
+* [Version Compare](/oscp/Version-Compare)
 
 # -
 
