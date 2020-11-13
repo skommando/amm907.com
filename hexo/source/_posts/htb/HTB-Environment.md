@@ -28,5 +28,5 @@ ip a
 ![](./2.png)
 
 > ***常见异常***
-> *openvpn 断开后留下 tun0 接口，以下命令删除。*
+> *openvpn 断开后留下 tun0 接口，再次连接使用出现异常，以下命令删除多余的 tun0。*
 > *`ip link delete tun0`*
