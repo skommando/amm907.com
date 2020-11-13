@@ -16,6 +16,7 @@ category: OSCP
 
 ### 安全工具
 
+#### MSF
 自带 `MSF5`，我们要升级成 `MSF6`。
 用 `msfupdate` 更新，被告知不再支持，改用 `apt update; apt install metasploit-framework`。
 
@@ -26,6 +27,9 @@ category: OSCP
 apt remove metasploit-framework
 curl https://raw.githubusercontent.com:443/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
 ```
+
+#### 信息收集相关
+apt install seclists curl enum4linux gobuster nbtscan nikto nmapomesixtyone oscanner smbclient smbmap smtp-user-enum snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
 
 ### 辅助工具
 。

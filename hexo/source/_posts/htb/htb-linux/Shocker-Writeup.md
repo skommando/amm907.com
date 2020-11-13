@@ -31,3 +31,28 @@ nmap -sU -A -p- -oA nmap/udp 10.10.10.56
 
 ## 0x02 漏洞利用
 根据端口逐一突破。
+
+### Port 80
+Apache，一看就是 web 应用，浏览器打开，首页是个图片，看了下 console 没有什么提示，翻了下主页 html 也无发现。
+
+nmap 找script
+
+php,sh,pl,py,cgi
+
+Linux Boxes:|Win Boxes|other
+---|---|---
+~~Lame~~|
+brainfuck|
+shocker|
+bashed|
+nibbles|
+beep|
+cronos|
+nineveh|
+sense|
+solidstate|
+node|
+valentine|
+poison|
+sunday|
+tartarsauce|
