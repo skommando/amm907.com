@@ -20,6 +20,7 @@
 
 * [Nmap Tips](/oscp/Nmap-Tips)
 * [Version Compare](/oscp/Version-Compare)
+* [Linux Priv Esc](/oscp/Linux-Priv-Esc)
 
 # -
 
