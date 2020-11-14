@@ -15,7 +15,7 @@ category: Hack The Box
 nmap -A -p- -oA nmap/tcp 10.10.10.68
 ```
 就开了一个 80。
-- **80**: apache 2.4.18，可能是漏洞版本，开放了 web 页面，title=""。
+- **80**: apache 2.4.18，可能是漏洞版本，开放了 web 页面。
 
 ![](./1.png)
 
