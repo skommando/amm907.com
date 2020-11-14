@@ -1,6 +1,6 @@
 ---
 title: Lame Writeup
-date: 2020-11-05 02:22:09
+date: 2020-11-06 02:22:09
 category: Hack The Box
 ---
 

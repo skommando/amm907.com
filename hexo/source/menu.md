@@ -15,6 +15,7 @@
 ## Prepration
 
 * [KALI Deploy](/oscp/KALI-Deploy)
+* [Training Plan](/oscp/Training-Plan)
 
 ## Note
 
