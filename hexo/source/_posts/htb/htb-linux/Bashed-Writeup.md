@@ -84,7 +84,7 @@ sudo -u scriptmanager sudo su
 ``` bash
 sudo -u scriptmanager /bin/bash
 ```
-翻一下这个所属用户为 `scriptmanager` 的文件是否能发现端倪，定位到根目录下的 `scripts` 文件夹。
+翻一下所属用户为 `scriptmanager` 的文件是否能发现端倪，定位到根目录下的 `scripts` 文件夹。
 
 ![](./9.png)
 里面有两个文件，根据内容推断出: `scriptmanager 的 python` 脚本执行后会生成一个 `root 的 txt`，说明意味着**这里的 python 文件会以 root 权限执行**，即使暂时不知道原因。
