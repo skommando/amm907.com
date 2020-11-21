@@ -1,5 +1,5 @@
 ---
-title: Shocker
+title: Shocker Writeup
 date: 2020-11-10 05:34:53
 category: Hack The Box
 ---
