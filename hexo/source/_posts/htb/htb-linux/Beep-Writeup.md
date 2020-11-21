@@ -6,11 +6,11 @@ category: Hack The Box
 
 # Beep Writeup
 
-![](./1.png)
+![](./0.png)
 
 ## 0x01 信息收集
 
-
+![](./1.png)
 
 ## 0x02 漏洞利用
 
