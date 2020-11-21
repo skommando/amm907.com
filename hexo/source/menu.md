@@ -6,6 +6,11 @@
 
 # -
 
+# **[ WEAPONRY ]**
+
+* [KALI Deploy](/weaponry/kali/KALI-Deploy)
+* [Common Problems](/weaponry/kali/Common-Problems)
+
 # -
 
 # **[ OSCP BATTLE ]**
@@ -14,7 +19,6 @@
 
 ## Prepration
 
-* [KALI Deploy](/oscp/KALI-Deploy)
 * [Training Plan](/oscp/Training-Plan)
 
 ## Note
@@ -34,6 +38,7 @@
 * [Lame Writeup](/htb/htb-linux/Lame-Writeup)
 * [Shocker Writeup](/htb/htb-linux/Shocker-Writeup)
 * [Bashed Writeup](/htb/htb-linux/Bashed-Writeup)
+* [Beep Writeup](/htb/htb-linux/Beep-Writeup)
 
 ## HTB Windows
 
