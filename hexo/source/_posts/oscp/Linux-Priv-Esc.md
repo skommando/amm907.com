@@ -7,6 +7,8 @@ category: OSCP
 # Linux 提权
 
 
+### Kernel Vulns
+
 ### sudo -l
 
 
