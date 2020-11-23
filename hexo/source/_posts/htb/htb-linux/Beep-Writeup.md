@@ -1,6 +1,6 @@
 ---
 title: Beep Writeup
-date: 2020-11-22 00:01:49
+date: 2020-11-16 05:26:49
 category: Hack The Box
 ---
 
