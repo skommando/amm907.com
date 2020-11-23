@@ -10,6 +10,7 @@
 
 * [KALI Deploy](/weaponry/kali/KALI-Deploy)
 * [Common Problems](/weaponry/kali/Common-Problems)
+* [Reverse Shell](/weaponry/commands/Reverse-Shell)
 
 # -
 
