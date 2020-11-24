@@ -46,4 +46,4 @@ http://10.10.10.75/nibbleblog/content/private/plugins/my_image/image.php
 ## 0x05 学到什么
 #### 1、弹 shell 的时候，一个不行就试另一个，经常有这种坑估计卡你一两下。
 #### 2、同个工具可能存在多个版本，一个不行就试另一个，比如 python、python3。
-#### 3、【sudo vs hosts】本题多了一个难点：sudo 和 host 的关系，虽然没有直接影响解体，但是使用 sudo 的时候卡顿容易让人以为搞错了。这个要研究下。
+#### 3、【sudo vs hosts】本题多了一个难点：sudo 和 host 的关系，虽然没有直接影响解题，但是使用 sudo 的时候卡顿容易让人以为搞错了。这个要研究下。

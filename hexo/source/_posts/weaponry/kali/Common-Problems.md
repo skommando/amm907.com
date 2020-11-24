@@ -32,3 +32,16 @@ system_default = system_default_sect
 [system_default_sect]
 CipherString = DEFAULT@SECLEVEL=1
 ```
+
+#### KALI.VMWare 迷之断网，右上角显示设备未托管
+`ifconfig -a` 看到网卡还在，只是罢工了。
+
+![](./1.png)
+修改配置，加入这两行，重启。
+``` bash
+vi /etc/network/interfaces
+auto eth0
+iface eth0 inet dhcp
+# 重启
+systemctl restart networking
+```

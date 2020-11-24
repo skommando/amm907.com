@@ -41,6 +41,7 @@
 * [Bashed Writeup](/htb/htb-linux/Bashed-Writeup)
 * [Beep Writeup](/htb/htb-linux/Beep-Writeup)
 * [Nibbles Writeup](/htb/htb-linux/Nibbles-Writeup)
+* [Sense Writeup](/htb/htb-linux/Sense-Writeup)
 
 ## HTB Windows
 
