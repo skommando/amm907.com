@@ -11,6 +11,8 @@
 * [KALI Deploy](/weaponry/kali/KALI-Deploy)
 * [Common Problems](/weaponry/kali/Common-Problems)
 * [Reverse Shell](/weaponry/commands/Reverse-Shell)
+* [File Transfer](/weaponry/commands/File-Transfer)
+* [Linux Priv Esc](/weaponry/Linux-Priv-Esc)
 
 # -
 
@@ -26,7 +28,6 @@
 
 * [Nmap Tips](/oscp/Nmap-Tips)
 * [Version Compare](/oscp/Version-Compare)
-* [Linux Priv Esc](/oscp/Linux-Priv-Esc)
 
 # -
 
