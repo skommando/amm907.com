@@ -6,8 +6,29 @@ category: WEAPONRY
 
 # Linux 提权
 
+## 信息泄漏
+### 泄漏的账密
+``` bash
+grep -i user [filename]
+grep -i pass [filename]
+grep -C 5 "password" [filename]
+find . -name "*.php" -print0 | xargs -0 grep -i -n "var $password" # Joom
+```
+### 历史记录
+``` bash
+cat ~/.bash_history
+cat ~/.nano_history
+cat ~/.atftp_history
+cat ~/.mysql_history
+cat ~/.php_history
+```
 
-### Kernel Vulns
+
+
+## Kernel Vulns
+
+
+## 配置不当
 
 ### sudo -l
 
@@ -28,6 +49,22 @@ vi /etc/crontab
 sudo su
 ```
 
+一些配置
+``` bash
+crontab -l
+ls -alh /var/spool/cron
+ls -al /etc/ | grep cron
+ls -al /etc/cron*
+cat /etc/cron*
+cat /etc/at.allow
+cat /etc/at.deny
+cat /etc/cron.allow
+cat /etc/cron.deny
+cat /etc/crontab
+cat /etc/anacrontab
+cat /var/spool/cron/crontabs/root
+```
+
 
 ### SUID 
 ``` bash
@@ -39,6 +76,11 @@ find / -perm -g=s -o -perm -u=s -type f 2>/dev/null # 以上两者合集
 # Looks in 'common' places: /bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin, /usr/local/sbin and any other *bin, for SGID or SUID (Quicker search)
 for i in `locate -r "bin$"`; do find $i \( -perm -4000 -o -perm -2000 \) -type f 2>/dev/null; done   
 
-# find starting at root (/), SGID or SUID, not Symbolic links, only 3 folders deep, list with more detail and hide any errors (e.g. permission denied)
+# 从 / 开始 3 个文件夹深度的范围内查找 SGID 或 SUID ，同时不是符号链接的文件
 find / -perm -g=s -o -perm -4000 ! -type l -maxdepth 3 -exec ls -ld {} \; 2>/dev/null   
 ```
+
+## Third Part Service
+
+### Root-Redis 未授权访问
+任意角色未授权登入，[公钥写入](https://github.com/Xyntax/POC-T/blob/9d538a217cb480dbd1f94f1fa6c8154a41b5b106/script/redis-sshkey-getshell.py)。

