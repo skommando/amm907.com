@@ -30,6 +30,13 @@ cat ~/.php_history
 
 ## 配置不当
 
+### 系统服务的错误权限配置漏洞
+``` bash
+cat /var/apache2/config.inc
+cat /var/lib/mysql/mysql/user.MYD
+cat /root/anaconda-ks.cfg
+```
+
 ### sudo -l
 
 
@@ -72,6 +79,8 @@ find / -perm -1000 -type d 2>/dev/null              # Sticky bit - Only the owne
 find / -perm -g=s -type f 2>/dev/null               # 以文件所属用户组权限运行
 find / -perm -u=s -type f 2>/dev/null               # 以文件所属用户权限运行
 find / -perm -g=s -o -perm -u=s -type f 2>/dev/null # 以上两者合集
+find / -user root -perm -4000 -print 2>/dev/null    # 先收集，待确认
+find / -user root -perm -4000 -exec ls -ldb {} \    # 先收集，待确认
 
 # Looks in 'common' places: /bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin, /usr/local/sbin and any other *bin, for SGID or SUID (Quicker search)
 for i in `locate -r "bin$"`; do find $i \( -perm -4000 -o -perm -2000 \) -type f 2>/dev/null; done   
@@ -83,4 +92,4 @@ find / -perm -g=s -o -perm -4000 ! -type l -maxdepth 3 -exec ls -ld {} \; 2>/dev
 ## Third Part Service
 
 ### Root-Redis 未授权访问
-任意角色未授权登入，[公钥写入](https://github.com/Xyntax/POC-T/blob/9d538a217cb480dbd1f94f1fa6c8154a41b5b106/script/redis-sshkey-getshell.py)。
+任意角色未授权登录，公钥写入。[redis-sshkey-getshell.py](https://github.com/Xyntax/POC-T/blob/9d538a217cb480dbd1f94f1fa6c8154a41b5b106/script/redis-sshkey-getshell.py)

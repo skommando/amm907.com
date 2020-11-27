@@ -33,7 +33,7 @@ system_default = system_default_sect
 CipherString = DEFAULT@SECLEVEL=1
 ```
 
-#### KALI.VMWare 迷之断网，右上角显示设备未托管
+#### KALI.VMware 迷之断网，右上角显示设备未托管
 `ifconfig -a` 看到网卡还在，只是罢工了。
 
 ![](./1.png)

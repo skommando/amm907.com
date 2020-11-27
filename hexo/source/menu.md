@@ -23,6 +23,8 @@
 ## Prepration
 
 * [Training Plan](/oscp/Training-Plan)
+* [Learning Plan](/oscp/Learning-Plan)
+* [Resources](/oscp/Resources)
 
 ## Note
 

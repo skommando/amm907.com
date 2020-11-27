@@ -8,8 +8,9 @@ category: Hack The Box
 
 ![](./0.png)
 
-
 ## 信息收集
+
+![](./1.png)
 
 ## 漏洞利用
 ![](./3.png)
