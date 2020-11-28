@@ -22,5 +22,5 @@ category: Hack The Box
 
 ## 攻击节点
 
-## 学到什么
+## 学到什么 
 #### 1、扫目录的时候，后缀多加点，什么 php、html、txt 全踏马加上。

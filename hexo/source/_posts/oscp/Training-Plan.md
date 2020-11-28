@@ -14,8 +14,8 @@ category: OSCP
 
 ## 与 OSCP 实验室相似的练习靶场
 
-参考 @xxx 总结的靶场列表。
 ### Hack The Box
+参考 @xxx 总结的靶场列表。
 
 ### VulnHub
 CTF 的机器练习是一种类似拼图的解法，OSCP 实验室的机器是类似真实世界的解法。
