@@ -12,7 +12,10 @@ category: WEAPONRY
 
 ### apt 源相关
 
-。
+#### 包管理工具
+``` bash
+apt-get install aptitude 
+```
 
 ### 安全工具
 
@@ -28,11 +31,41 @@ apt remove metasploit-framework
 curl https://raw.githubusercontent.com:443/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
 ```
 
+#### 脚本配置
+**预装了 python2/3 但是没有 pip2。**
+``` bash
+wget https://bootstrap.pypa.io/2.6/get-pip.py
+python2 get-pip.py
+pip -V
+pip install --upgrade pip
+```
+![](./2.png)
+
+**组件安装**
+``` bash
+pip install paramiko
+```
+**难搞的 PWNTOOLS，目前安装报错**
+``` bash
+pip install -U setuptools
+pip install cryptography==2.5
+pip install pwntools                                        # 报错
+pip install pwntools -i https://www.piwheels.org/simple/    # 报错
+```
+
 #### 信息收集相关
 apt install seclists curl enum4linux gobuster nbtscan nikto nmapomesixtyone oscanner smbclient smbmap smtp-user-enum snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
 
+#### 需要解压的文件
+gzip -d /usr/share/wordlist/rockyou.txt.gz
+
 ### 辅助工具
-。
+#### Docker
+``` bash
+curl -sSL https://get.daocloud.io/docker | sh                           # 国内 daocloud
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun      # 官方
+curl -sSL http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/internet | sh -   # 阿里云
+```
 
 ### 杂七杂八的配置
 
