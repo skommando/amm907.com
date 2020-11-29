@@ -2,7 +2,7 @@
 
 # November 4, 2020
 
-# 写点啥儿
+* [Changelog](/Changelog)
 
 # -
 
