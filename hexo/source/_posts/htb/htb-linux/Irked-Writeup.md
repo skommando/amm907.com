@@ -7,3 +7,7 @@ category: Hack The Box
 # Irked Writeup
 
 ![](./0.png)
+
+## 0x01 信息收集
+
+![](./1.png)
