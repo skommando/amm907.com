@@ -31,8 +31,13 @@ apt remove metasploit-framework
 curl https://raw.githubusercontent.com:443/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
 ```
 
+#### Gobuster
+``` bash
+apt-get install -y gobuster
+```
+
 #### 脚本配置
-**预装了 python2/3 但是没有 pip2。**
+**预装了 python2/3、pip3 但没有 pip2。**
 ``` bash
 wget https://bootstrap.pypa.io/2.6/get-pip.py
 python2 get-pip.py
@@ -45,13 +50,13 @@ pip install --upgrade pip
 ``` bash
 pip install paramiko
 ```
-**难搞的 PWNTOOLS，目前安装报错**
-``` bash
-pip install -U setuptools
-pip install cryptography==2.5
-pip install pwntools                                        # 报错
-pip install pwntools -i https://www.piwheels.org/simple/    # 报错
-```
+> **难搞的 pwntools，目前安装报错**
+> ``` bash
+> pip install -U setuptools
+> pip install cryptography==2.5                               # 2.5 适配当时安装的版本，按理说越高越好
+> pip install pwntools                                        # 报错
+> pip install pwntools -i https://www.piwheels.org/simple/    # 报错
+> ```
 
 #### 信息收集相关
 apt install seclists curl enum4linux gobuster nbtscan nikto nmapomesixtyone oscanner smbclient smbmap smtp-user-enum snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
