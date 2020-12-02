@@ -31,9 +31,9 @@ apt remove metasploit-framework
 curl https://raw.githubusercontent.com:443/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
 ```
 
-#### Gobuster
+#### 多种工具
 ``` bash
-apt-get install -y gobuster
+apt-get install -y gobuster, steghide, strace, ltrace
 ```
 
 #### 脚本配置
