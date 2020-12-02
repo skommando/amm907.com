@@ -12,7 +12,7 @@ category: Hack The Box
 
 ![](./1.png)
 
-## 0x02 漏洞利用
+## 0x02 枚举
 
 ### 1、Port 22
 
@@ -35,7 +35,7 @@ openssl rsa -in id_rsa -out dec.key
 Apache httpd 2.2.22 存在 cgi-bin RCE。
 路径 404？可能需要一个具体的脚本 uri，但是目前 cgi-bin 目录下没扫到脚本文件。
 
-## 0x03 Getshell
+## 0x03 立足点
 
 ## 0x04 提权
 

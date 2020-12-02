@@ -47,6 +47,7 @@
 * [Sense Writeup](/htb/htb-linux/Sense-Writeup)
 * [Valentine Writeup](/htb/htb-linux/Valentine-Writeup)
 * [Irked Writeup](/htb/htb-linux/Irked-Writeup)
+* [FriendZone Writeup](/htb/htb-linux/FriendZone-Writeup)
 
 ## HTB Windows
 
