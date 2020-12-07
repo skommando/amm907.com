@@ -75,7 +75,7 @@ exim4 - 4.84-2 看有提权漏洞，实则兔子洞，很坑。
 > (图)
 
 ## 0x05 攻击节点
-信息收集 -> nmap 漏洞扫描 -> 6697.unrealircd(ircd) -> viewuser 服务执行文件(root)
+#### 信息收集 -> nmap 漏洞扫描 -> 6697.unrealircd(ircd) -> viewuser 服务执行文件(root)
 
 ## 0x02 学到什么
 #### 1、善用 `nmap --script vuln`。

@@ -10,6 +10,28 @@ category: Hack The Box
 
 ## 0x01 信息收集
 
+### 1、TCP Scan
+``` bash
+nmap -A -p- -oA nmap/tcp 10.10.10.140
+```
+- **1**: 
+
 ![](./1.png)
 
+### 2、UDP Scan
+``` bash
+nmap -A -p- -oA nmap/udp 10.10.10.140
+```
+
 ## 0x02 枚举
+
+## 0x03 立足点
+
+## 0x04 提权
+
+## 0x05 攻击节点
+#### 
+## 0x06 学到什么
+#### 1、
+#### 2、
+#### 3、

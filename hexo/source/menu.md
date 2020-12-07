@@ -48,6 +48,7 @@
 * [Valentine Writeup](/htb/htb-linux/Valentine-Writeup)
 * [Irked Writeup](/htb/htb-linux/Irked-Writeup)
 * [FriendZone Writeup](/htb/htb-linux/FriendZone-Writeup)
+* [Swagshop Writeup](/htb/htb-linux/Swagshop-Writeup)
 
 ## HTB Windows
 
