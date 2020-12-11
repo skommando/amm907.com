@@ -14,7 +14,8 @@ category: Hack The Box
 ``` bash
 nmap -A -p- -oA nmap/tcp 10.10.10.140
 ```
-- **1**: 
+- **22**: OpenSSH 7.2p1，版本较高
+- **80**: apache 2.4.18，版本较高，web 页面 title Home page
 
 ![](./1.png)
 

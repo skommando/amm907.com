@@ -185,7 +185,7 @@ $ vi info.php
 > 当存在文件包含时，往往只能看见执行后的文件，如果能知道脚本里写了什么，是不是就能很快判定这里上传逻辑了呢。
 > 那么要怎么获得执行前的脚本文件？据说有这么个姿势，会返回相应页面的 base64，解码可得页面内容。
 > ``` text
-> https://administrator1.friendzone.red/dashboard.php?image_id=a.jpg&pagename=php://filter/covert.base64-encode/resource=php://filter/covert.base64-encode/resource=login
+> https://administrator1.friendzone.red/dashboard.php?image_id=a.jpg&pagename=php://filter/covert.base64-encode/resource=login
 > ```
 > 但是实操无效，原因未知。
 
