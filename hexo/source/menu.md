@@ -8,11 +8,15 @@
 
 # **[ WEAPONRY ]**
 
-* [KALI Deploy](/weaponry/kali/KALI-Deploy)
-* [Common Problems](/weaponry/kali/Common-Problems)
+* [MSFVenom](/weaponry/commands/MSFVenom)
 * [Reverse Shell](/weaponry/commands/Reverse-Shell)
 * [File Transfer](/weaponry/commands/File-Transfer)
-* [Linux Priv Esc](/weaponry/Linux-Priv-Esc)
+* [Linux Priv Esc](/weaponry/priv-esc/Linux-Priv-Esc)
+
+## Kali
+
+* [KALI Deploy](/weaponry/kali/KALI-Deploy)
+* [Common Problems](/weaponry/kali/Common-Problems)
 
 # -
 

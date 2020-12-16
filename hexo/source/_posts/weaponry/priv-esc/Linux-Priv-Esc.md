@@ -24,7 +24,6 @@ cat ~/.php_history
 ```
 
 
-
 ## Kernel Vulns
 
 

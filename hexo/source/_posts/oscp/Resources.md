@@ -16,6 +16,7 @@ https://www.youtube.com/watch?v=Hk-21p2m8YY
 ### Shell Exploitation
 
 http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
+https://redteamtutorials.com/2018/10/24/msfvenom-cheatsheet/
 http://www.lanmaster53.com/2011/05/7-linux-shells-using-built-in-tools/          
 https://netsec.ws/?p=331
 
