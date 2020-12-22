@@ -41,13 +41,19 @@ apt-get install -y gobuster, steghide, strace, ltrace
 ``` bash
 wget https://bootstrap.pypa.io/2.6/get-pip.py
 python2 get-pip.py
-pip -V
-pip install --upgrade pip
+pip2 -V
+pip2 install --upgrade pip
+# 替换原 pip(3)
+mv /usr/local/bin/pip /usr/local/bin/pip.bk
+ln -s /usr/local/bin/pip2 /usr/local/bin/pip
 ```
 ![](./2.png)
 
 **组件安装**
 ``` bash
+# pip2
+pip install paramiko requests
+# pip3
 pip install paramiko
 ```
 > **难搞的 pwntools，目前安装报错**
